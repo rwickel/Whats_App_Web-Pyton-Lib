@@ -1,0 +1,21 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "whatsapp-web-bot"
+version = "0.1.0"
+description = "A headless WhatsApp Web automation bot using Selenium and Pydantic"
+readme = "README.md"
+requires-python = ">=3.8"
+dependencies = [
+    "selenium",
+    "webdriver-manager",
+    "pydantic",
+    "qrcode",
+    "pillow"
+]
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["whatsapp_web_bot*"]
