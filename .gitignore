@@ -1,0 +1,8 @@
+__pycache__/
+*.py[cod]
+*$py.class
+whatsapp_session/
+msedgedriver.exe
+.env
+.vscode/
+node_modules/
