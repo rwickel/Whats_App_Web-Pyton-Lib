@@ -1,5 +1,10 @@
+import os
+import sys
+# Add project root to sys.path so we can import from whatsapp_bridge
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..")))
+
 import pytest
-from whatsapp_web.models import Message, ChatChannel
+from whatsapp_bridge.whatsapp_web.models import Message, ChatChannel
 
 def test_message_model():
     msg = Message(role="incoming", content="Hello", type="text")

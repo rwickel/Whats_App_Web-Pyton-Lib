@@ -1,0 +1,137 @@
+=== WhatsApp Bridge Log - Started 2026-02-21 15:40:10 ===
+
+>>> Log file: c:\Users\rober\work\WhatsAppBot\whatsapp_bridge\bridge_output.log
+>>> Working directory: C:\Users\rober\work\WhatsAppBot
+>>> MOCK MODE ENABLED (Default): Gemini CLI responses will be simulated.
+
+============================================================
+  WhatsApp Bridge Launcher
+============================================================
+  Admin Chat:  +49 176 45975276
+  Browser:     chrome (visible=True)
+  Workspaces:  c:\Users\rober\work\WhatsAppBot\workspaces
+  AI Backend:  MOCKED
+============================================================
+
+>>> Loaded 1 active sessions.
+>>> Waiting for QR code or chat list...
+>>> Login successful.
+>>> Admin UI Error: Unable to configure formatter 'default'
+>>> Getting history for +49 176 45975276...
+>>> Switching to chat: +49 176 45975276
+>>> Name mismatch but continuing: expected +49 176 45975276, got Klicke hier für Gruppeninfo
+>>> Getting history for +49 176 45975276...
+>>> Switching to chat: +49 176 45975276
+>>> Name mismatch but continuing: expected +49 176 45975276, got Olga, +49 176 62148125, +49 1515 2462542, +49 171 1229966, +49 160 7460556, +49 171 8123416, +49 179 5695111, +49 170 8072085, +49 170 4909441, +49 176 38480387, +49 175 5506498, +49 160 96727055, +49 176 31342218, +49 163 6378206, +49 171 2114144, +49 176 20727715, +49 176 77436077, +49 175 5241565, +49 171 1973692, +49 1516 4619074, +49 171 8377399, +49 1517 1462500, +49 1515 1107405, +49 1514 0745236, +49 174 8255207, +49 178 3106275, +49 176 22775421, +49 177 3843383, +49 160 98942658, +49 174 5260805, Du
+>>> New message in +49 176 45975276 (120363334632450708@g.us): 'Stefan
++49 176 77436077
+12:38
+4'
+>>> Switching to chat: +49 176 45975276
+>>> Name mismatch but continuing: expected +49 176 45975276, got Olga, +49 176 62148125, +49 1515 2462542, +49 171 1229966, +49 160 7460556, +49 171 8123416, +49 179 5695111, +49 170 8072085, +49 170 4909441, +49 176 38480387, +49 175 5506498, +49 160 96727055, +49 176 31342218, +49 163 6378206, +49 171 2114144, +49 176 20727715, +49 176 77436077, +49 175 5241565, +49 171 1973692, +49 1516 4619074, +49 171 8377399, +49 1517 1462500, +49 1515 1107405, +49 1514 0745236, +49 174 8255207, +49 178 3106275, +49 176 22775421, +49 177 3843383, +49 160 98942658, +49 174 5260805, Du
+>>> [PLANNING] for +49 176 45975276
+>>> New message in +49 176 45975276 (120363334632450708@g.us): 'Tamy
++49 175 5241565
+Wie schön '--- MOCK AI CALL for +49 176 45975276 ---
+
+Prompt: PHASE 1: PLANNING. Respond ONLY with a concise, numbered plan to fulfill this request. Do NOT execut...
+>>> Switching to chat: +49 176 45975276
+>>> [EXECUTION] for +49 176 45975276
+--- MOCK AI CALL for +49 176 45975276 ---
+Prompt: PHASE 2: EXECUTION. Now fully implement the request based on the plan. Use all necessary tools. Requ...
+>>> Name mismatch but continuing: expected +49 176 45975276, got Olga, +49 176 62148125, +49 1515 2462542, +49 171 1229966, +49 160 7460556, +49 171 8123416, +49 179 5695111, +49 170 8072085, +49 170 4909441, +49 176 38480387, +49 175 5506498, +49 160 96727055, +49 176 31342218, +49 163 6378206, +49 171 2114144, +49 176 20727715, +49 176 77436077, +49 175 5241565, +49 171 1973692, +49 1516 4619074, +49 171 8377399, +49 1517 1462500, +49 1515 1107405, +49 1514 0745236, +49 174 8255207, +49 178 3106275, +49 176 22775421, +49 177 3843383, +49 160 98942658, +49 174 5260805, Du
+>>> [PLANNING] for +49 176 45975276
+>>> New message in +49 176 45975276 (120363334632450708@g.us): 'Toll seht ihr aus '--- MOCK AI CALL for +49 176 45975276 ---
+
+Prompt: PHASE 1: PLANNING. Respond ONLY with a concise, numbered plan to fulfill this request. Do NOT execut...
+>>> Switching to chat: +49 176 45975276
+>>> [EXECUTION] for +49 176 45975276
+--- MOCK AI CALL for +49 176 45975276 ---
+Prompt: PHASE 2: EXECUTION. Now fully implement the request based on the plan. Use all necessary tools. Requ...
+>>> Name mismatch but continuing: expected +49 176 45975276, got Olga, +49 176 62148125, +49 1515 2462542, +49 171 1229966, +49 160 7460556, +49 171 8123416, +49 179 5695111, +49 170 8072085, +49 170 4909441, +49 176 38480387, +49 175 5506498, +49 160 96727055, +49 176 31342218, +49 163 6378206, +49 171 2114144, +49 176 20727715, +49 176 77436077, +49 175 5241565, +49 171 1973692, +49 1516 4619074, +49 171 8377399, +49 1517 1462500, +49 1515 1107405, +49 1514 0745236, +49 174 8255207, +49 178 3106275, +49 176 22775421, +49 177 3843383, +49 160 98942658, +49 174 5260805, Du
+>>> [PLANNING] for +49 176 45975276>>> New message in +49 176 45975276 (120363334632450708@g.us): 'Mona
++49 176 31342218
+Max spielt morgen dann nicht'
+
+--- MOCK AI CALL for +49 176 45975276 ---
+Prompt: PHASE 1: PLANNING. Respond ONLY with a concise, numbered plan to fulfill this request. Do NOT execut...
+>>> Switching to chat: +49 176 45975276
+>>> [EXECUTION] for +49 176 45975276
+--- MOCK AI CALL for +49 176 45975276 ---
+Prompt: PHASE 2: EXECUTION. Now fully implement the request based on the plan. Use all necessary tools. Requ...
+>>> Name mismatch but continuing: expected +49 176 45975276, got Olga, +49 176 62148125, +49 1515 2462542, +49 171 1229966, +49 160 7460556, +49 171 8123416, +49 179 5695111, +49 170 8072085, +49 170 4909441, +49 176 38480387, +49 175 5506498, +49 160 96727055, +49 176 31342218, +49 163 6378206, +49 171 2114144, +49 176 20727715, +49 176 77436077, +49 175 5241565, +49 171 1973692, +49 1516 4619074, +49 171 8377399, +49 1517 1462500, +49 1515 1107405, +49 1514 0745236, +49 174 8255207, +49 178 3106275, +49 176 22775421, +49 177 3843383, +49 160 98942658, +49 174 5260805, Du
+>>> [PLANNING] for +49 176 45975276>>> New message in +49 176 45975276 (120363334632450708@g.us): 'Mona
++49 176 31342218
+Ist das korrekt, dass das Tu'
+--- MOCK AI CALL for +49 176 45975276 ---
+
+Prompt: PHASE 1: PLANNING. Respond ONLY with a concise, numbered plan to fulfill this request. Do NOT execut...
+>>> Switching to chat: +49 176 45975276
+>>> [EXECUTION] for +49 176 45975276
+--- MOCK AI CALL for +49 176 45975276 ---
+Prompt: PHASE 2: EXECUTION. Now fully implement the request based on the plan. Use all necessary tools. Requ...
+>>> Name mismatch but continuing: expected +49 176 45975276, got Olga, +49 176 62148125, +49 1515 2462542, +49 171 1229966, +49 160 7460556, +49 171 8123416, +49 179 5695111, +49 170 8072085, +49 170 4909441, +49 176 38480387, +49 175 5506498, +49 160 96727055, +49 176 31342218, +49 163 6378206, +49 171 2114144, +49 176 20727715, +49 176 77436077, +49 175 5241565, +49 171 1973692, +49 1516 4619074, +49 171 8377399, +49 1517 1462500, +49 1515 1107405, +49 1514 0745236, +49 174 8255207, +49 178 3106275, +49 176 22775421, +49 177 3843383, +49 160 98942658, +49 174 5260805, Du
+>>> [PLANNING] for +49 176 45975276>>> New message in +49 176 45975276 (120363334632450708@g.us): 'Osterferien gehen nur bis 10.4.'
+
+--- MOCK AI CALL for +49 176 45975276 ---
+Prompt: PHASE 1: PLANNING. Respond ONLY with a concise, numbered plan to fulfill this request. Do NOT execut...
+>>> New message in +49 176 45975276 (120363334632450708@g.us): 'Jasmin Mehovic
++49 179 5695111
+Hatte ich mich auch'
+>>> New message in +49 176 45975276 (120363334632450708@g.us): 'Christe
++49 171 1229966
+Mona
++49 176 31342218
+Ist '
+>>> Switching to chat: +49 176 45975276
+>>> [EXECUTION] for +49 176 45975276
+--- MOCK AI CALL for +49 176 45975276 ---
+Prompt: PHASE 2: EXECUTION. Now fully implement the request based on the plan. Use all necessary tools. Requ...
+>>> [PLANNING] for +49 176 45975276
+--- MOCK AI CALL for +49 176 45975276 ---
+Prompt: PHASE 1: PLANNING. Respond ONLY with a concise, numbered plan to fulfill this request. Do NOT execut...
+>>> Name mismatch but continuing: expected +49 176 45975276, got Olga, +49 176 62148125, +49 1515 2462542, +49 171 1229966, +49 160 7460556, +49 171 8123416, +49 179 5695111, +49 170 8072085, +49 170 4909441, +49 176 38480387, +49 175 5506498, +49 160 96727055, +49 176 31342218, +49 163 6378206, +49 171 2114144, +49 176 20727715, +49 176 77436077, +49 175 5241565, +49 171 1973692, +49 1516 4619074, +49 171 8377399, +49 1517 1462500, +49 1515 1107405, +49 1514 0745236, +49 174 8255207, +49 178 3106275, +49 176 22775421, +49 177 3843383, +49 160 98942658, +49 174 5260805, Du
+>>> New message in +49 176 45975276 (120363334632450708@g.us): 'Mona
++49 176 31342218
+Also Max kommt morgen und sp'
+>>> New message in +49 176 45975276 (120363334632450708@g.us): 'Chris Osburg
++49 1515 2462542
+Ja denke das passt s'
+>>> [EXECUTION] for +49 176 45975276
+--- MOCK AI CALL for +49 176 45975276 ---
+Prompt: PHASE 2: EXECUTION. Now fully implement the request based on the plan. Use all necessary tools. Requ...
+>>> Switching to chat: +49 176 45975276
+>>> [PLANNING] for +49 176 45975276
+--- MOCK AI CALL for +49 176 45975276 ---
+Prompt: PHASE 1: PLANNING. Respond ONLY with a concise, numbered plan to fulfill this request. Do NOT execut...
+>>> [EXECUTION] for +49 176 45975276
+--- MOCK AI CALL for +49 176 45975276 ---
+Prompt: PHASE 2: EXECUTION. Now fully implement the request based on the plan. Use all necessary tools. Requ...
+>>> [PLANNING] for +49 176 45975276
+--- MOCK AI CALL for +49 176 45975276 ---
+Prompt: PHASE 1: PLANNING. Respond ONLY with a concise, numbered plan to fulfill this request. Do NOT execut...
+>>> Name mismatch but continuing: expected +49 176 45975276, got Olga, +49 176 62148125, +49 1515 2462542, +49 171 1229966, +49 160 7460556, +49 171 8123416, +49 179 5695111, +49 170 8072085, +49 170 4909441, +49 176 38480387, +49 175 5506498, +49 160 96727055, +49 176 31342218, +49 163 6378206, +49 171 2114144, +49 176 20727715, +49 176 77436077, +49 175 5241565, +49 171 1973692, +49 1516 4619074, +49 171 8377399, +49 1517 1462500, +49 1515 1107405, +49 1514 0745236, +49 174 8255207, +49 178 3106275, +49 176 22775421, +49 177 3843383, +49 160 98942658, +49 174 5260805, Du
+>>> [EXECUTION] for +49 176 45975276
+--- MOCK AI CALL for +49 176 45975276 ---
+Prompt: PHASE 2: EXECUTION. Now fully implement the request based on the plan. Use all necessary tools. Requ...
+>>> Switching to chat: +49 176 45975276
+>>> [PLANNING] for +49 176 45975276
+--- MOCK AI CALL for +49 176 45975276 ---
+Prompt: PHASE 1: PLANNING. Respond ONLY with a concise, numbered plan to fulfill this request. Do NOT execut...
+>>> [EXECUTION] for +49 176 45975276
+--- MOCK AI CALL for +49 176 45975276 ---
+Prompt: PHASE 2: EXECUTION. Now fully implement the request based on the plan. Use all necessary tools. Requ...
+>>> Name mismatch but continuing: expected +49 176 45975276, got Olga, +49 176 62148125, +49 1515 2462542, +49 171 1229966, +49 160 7460556, +49 171 8123416, +49 179 5695111, +49 170 8072085, +49 170 4909441, +49 176 38480387, +49 175 5506498, +49 160 96727055, +49 176 31342218, +49 163 6378206, +49 171 2114144, +49 176 20727715, +49 176 77436077, +49 175 5241565, +49 171 1973692, +49 1516 4619074, +49 171 8377399, +49 1517 1462500, +49 1515 1107405, +49 1514 0745236, +49 174 8255207, +49 178 3106275, +49 176 22775421, +49 177 3843383, +49 160 98942658, +49 174 5260805, Du
+>>> [PLANNING] for +49 176 45975276
+--- MOCK AI CALL for +49 176 45975276 ---
+Prompt: PHASE 1: PLANNING. Respond ONLY with a concise, numbered plan to fulfill this request. Do NOT execut...
+>>> Switching to chat: +49 176 45975276
+>>> [EXECUTION] for +49 176 45975276
+--- MOCK AI CALL for +49 176 45975276 ---
+Prompt: PHASE 2: EXECUTION. Now fully implement the request based on the plan. Use all necessary tools. Requ...
+>>> Name mismatch but continuing: expected +49 176 45975276, got Olga, +49 176 62148125, +49 1515 2462542, +49 171 1229966, +49 160 7460556, +49 171 8123416, +49 179 5695111, +49 170 8072085, +49 170 4909441, +49 176 38480387, +49 175 5506498, +49 160 96727055, +49 176 31342218, +49 163 6378206, +49 171 2114144, +49 176 20727715, +49 176 77436077, +49 175 5241565, +49 171 1973692, +49 1516 4619074, +49 171 8377399, +49 1517 1462500, +49 1515 1107405, +49 1514 0745236, +49 174 8255207, +49 178 3106275, +49 176 22775421, +49 177 3843383, +49 160 98942658, +49 174 5260805, Du
+>>> Switching to chat: +49 176 45975276
+>>> Name mismatch but continuing: expected +49 176 45975276, got Olga, +49 176 62148125, +49 1515 2462542, +49 171 1229966, +49 160 7460556, +49 171 8123416, +49 179 5695111, +49 170 8072085, +49 170 4909441, +49 176 38480387, +49 175 5506498, +49 160 96727055, +49 176 31342218, +49 163 6378206, +49 171 2114144, +49 176 20727715, +49 176 77436077, +49 175 5241565, +49 171 1973692, +49 1516 4619074, +49 171 8377399, +49 1517 1462500, +49 1515 1107405, +49 1514 0745236, +49 174 8255207, +49 178 3106275, +49 176 22775421, +49 177 3843383, +49 160 98942658, +49 174 5260805, Du
+>>> Switching to chat: +49 176 45975276
+>>> Name mismatch but continuing: expected +49 176 45975276, got Olga, +49 176 62148125, +49 1515 2462542, +49 171 1229966, +49 160 7460556, +49 171 8123416, +49 179 5695111, +49 170 8072085, +49 170 4909441, +49 176 38480387, +49 175 5506498, +49 160 96727055, +49 176 31342218, +49 163 6378206, +49 171 2114144, +49 176 20727715, +49 176 77436077, +49 175 5241565, +49 171 1973692, +49 1516 4619074, +49 171 8377399, +49 1517 1462500, +49 1515 1107405, +49 1514 0745236, +49 174 8255207, +49 178 3106275, +49 176 22775421, +49 177 3843383, +49 160 98942658, +49 174 5260805, Du
+>>> Switching to chat: +49 176 45975276

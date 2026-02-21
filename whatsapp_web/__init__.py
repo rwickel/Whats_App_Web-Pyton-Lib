@@ -1,4 +1,4 @@
-from .core import WhatsAppWeb
-from .models import Message, ChatChannel
+from .models import Message, MessageType, MessageRole, ChatChannel
+from .driver import WhatsAppWeb
 
-__all__ = ["WhatsAppWeb", "Message", "ChatChannel"]
+__all__ = ["Message", "MessageType", "MessageRole", "ChatChannel", "WhatsAppWeb"]
