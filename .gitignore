@@ -1,0 +1,7 @@
+__pycache__/
+*.pyc
+whatsapp_session/
+*.log
+bridge_state.json
+sessions.json
+.pytest_cache/
