@@ -167,7 +167,10 @@ class WhatsAppWeb:
         norm2 = n2.replace(" ", "").replace("+", "").lower()
         
         # Self-contact detection (common in various languages)
-        me_names = ["du", "you", "me", "ich", "yo", "moi", "self"]
+        me_names = [
+            "du", "you", "me", "ich", "yo", "moi", "self", 
+            "sendedirselbsteinenachricht"
+        ]
         if norm1 in me_names or norm2 in me_names:
             # If the current open chat is "Du" and we want a phone number, 
             # we assume it's a match (common result when searching for own number).
