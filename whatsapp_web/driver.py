@@ -122,61 +122,110 @@ class WhatsAppWeb:
         """Opens a chat by searching. Avoids driver.get() to prevent app reloads."""
         with self.lock:
             try:
-                # Check if current chat is already the target
+                # 1. Check if current chat is already the target
                 active_name = self.get_active_chat_name()
                 if self._names_match(active_name, chat_name):
                     return True
 
                 print(f">>> Switching to chat: {chat_name}")
-                search_box = self.driver.find_element(By.XPATH, "//div[@contenteditable='true'][@data-tab='3']")
-                search_box.click()
                 
-                # Clear and type
-                search_box.send_keys(Keys.CONTROL + "a")
-                search_box.send_keys(Keys.BACKSPACE)
-                self.driver.execute_script("arguments[0].innerText = arguments[1];", search_box, chat_name)
-                
-                # Trigger WhatsApp's internal search listener
-                search_box.send_keys(Keys.SPACE)
-                search_box.send_keys(Keys.BACKSPACE)
-                time.sleep(1.0)
-                search_box.send_keys(Keys.ENTER)
-                time.sleep(1.5) 
+                # 2. Try to search and open
+                for attempt in range(2):
+                    try:
+                        # Find search box and clear it
+                        search_box = self.driver.find_element(By.XPATH, "//div[@contenteditable='true'][@data-tab='3']")
+                        search_box.click()
+                        search_box.send_keys(Keys.CONTROL + "a")
+                        search_box.send_keys(Keys.BACKSPACE)
+                        time.sleep(0.5)
+                        
+                        # Type target name
+                        search_box.send_keys(chat_name)
+                        time.sleep(2.0 + (attempt * 1.0)) # Wait for results to stabilize
+                        
+                        # Look for the row in search results
+                        # We look for rows that are NOT the "search box" itself or "Chats" header
+                        rows = self.driver.find_elements(By.XPATH, "//div[@role='row']")
+                        found = False
+                        
+                        # Optimization: filter out obviously wrong rows if possible
+                        for row in rows:
+                            try:
+                                # Look for the title span inside this row
+                                # WhatsApp Web search results often use different structures
+                                # Try a wider range of title selectors
+                                name_el = None
+                                for s in ["span[title]", "div[title]", "[role='gridcell'] span"]:
+                                    try:
+                                        name_el = row.find_element(By.CSS_SELECTOR, s)
+                                        if name_el: break
+                                    except: continue
+                                
+                                if not name_el: continue
+                                
+                                found_name = name_el.get_attribute("title") or name_el.text
+                                if self._names_match(found_name, chat_name):
+                                    print(f">>> Found matching row for '{chat_name}' (Display: '{found_name}'). Clicking...")
+                                    
+                                    # Sometimes row.click() hits the icon, let's try to click the text directly
+                                    try:
+                                        name_el.click()
+                                    except:
+                                        row.click()
+                                        
+                                    found = True
+                                    break
+                            except:
+                                continue
+                        
+                        if not found:
+                            print(f">>> Row matching '{chat_name}' not found explicitly. Trying Enter key fallback.")
+                            search_box.send_keys(Keys.ENTER)
+                        
+                        time.sleep(2.0) 
 
-                # Verify the switch
-                new_active = self.get_active_chat_name()
-                if self._names_match(new_active, chat_name):
-                    return True
-                
-                if new_active:
-                    # If we found something and pressed enter, we assume it's the right one
-                    # especially if it's "Du" (Me) or a contact name for a number.
-                    print(f">>> Name mismatch but continuing: expected {chat_name}, got {new_active}")
-                    return True
-                
+                        # Verify switch
+                        new_active = self.get_active_chat_name()
+                        if self._names_match(new_active, chat_name):
+                            print(f">>> Successfully switched to {new_active}")
+                            return True
+                        
+                        print(f">>> Attempt {attempt+1}: Failed to switch. Currently on: '{new_active}'")
+                    except Exception as e:
+                        print(f">>> Attempt {attempt+1}: Search error: {e}")
+                        time.sleep(1)
+
                 return False
             except Exception as e:
-                print(f">>> Error opening chat {chat_name}: {e}")
+                print(f">>> Critical error in open_chat: {e}")
                 return False
 
     def _names_match(self, n1: Optional[str], n2: Optional[str]) -> bool:
         if not n1 or not n2: return False
         
-        # Normalize
-        norm1 = n1.replace(" ", "").replace("+", "").lower()
-        norm2 = n2.replace(" ", "").replace("+", "").lower()
+        # Normalize: remove spaces, pluses, underscores, hyphens, and dots
+        def norm(s):
+            return re.sub(r'[\s\+\-_\.]', '', s).lower()
+            
+        norm1 = norm(n1)
+        norm2 = norm(n2)
         
-        # Self-contact detection (common in various languages)
-        me_names = [
-            "du", "you", "me", "ich", "yo", "moi", "self", 
-            "sendedirselbsteinenachricht"
-        ]
+        # Self-contact detection
+        me_names = ["du", "you", "me", "ich", "yo", "moi", "self"]
         if norm1 in me_names or norm2 in me_names:
-            # If the current open chat is "Du" and we want a phone number, 
-            # we assume it's a match (common result when searching for own number).
-            return True
+            is_n1_me = norm1 in me_names
+            is_n2_me = norm2 in me_names
+            if is_n1_me and is_n2_me: return True
+            
+            other = norm2 if is_n1_me else norm1
+            # If searched for phone number and got "Du", it's a match
+            if other.isdigit() and len(other) > 7:
+                return True
+            return False
 
-        return norm1 == norm2 or norm1 in norm2 or norm2 in norm1
+        # Strict equality after normalization
+        # Note: avoid 'in' check which causes "Agent_work" to match "Agent" or numbers
+        return norm1 == norm2
 
     def get_history(self, chat_name: str, limit: int = 10) -> List[Message]:
         """Opens a chat and retrieves recent messages."""
@@ -186,6 +235,16 @@ class WhatsAppWeb:
             messages = []
             if not self.open_chat(chat_name):
                 return []
+            
+            # Double-check we are in the correct chat to prevent cross-talk
+            active = self.get_active_chat_name()
+            if not self._names_match(active, chat_name):
+                print(f">>> Safety check failed: Requested '{chat_name}' but active is '{active}'. Skipping.")
+                return []
+            else:
+                # Debug log to verify what we matched
+                if active != chat_name:
+                    print(f">>> Safety check passed: matched '{chat_name}' with active UI title '{active}'")
 
             try:
                 msg_elements = self.driver.find_elements(By.CSS_SELECTOR, "div[data-id]")
@@ -287,17 +346,24 @@ class WhatsAppWeb:
         """Returns the name of the currently open chat."""
         with self.lock:
             try:
-                # Try multiple selectors for the header title
+                # Try multiple precise selectors for the header title
                 selectors = [
-                    "header div[role='button'] span[title]",
-                    "#main header span[title]",
-                    "header span[title]"
+                    "header [data-testid='conversation-info-header-chat-title']",
+                    "header [aria-label='Chat details'] span[title]",
+                    "header span[title]",
+                    "#main header span[title]"
                 ]
                 for selector in selectors:
                     try:
+                        # Use find_element instead of find_elements to get the topmost one
                         el = self.driver.find_element(By.CSS_SELECTOR, selector)
-                        name = el.get_attribute("title")
-                        if name: return name
+                        # Prefer 'title' attribute if it exists, as it's more definitive
+                        name = el.get_attribute("title") or el.text
+                        if name and name.strip():
+                            # Skip if the name is just a timestamp or status
+                            clean_name = name.strip()
+                            if not re.match(r'^\d{1,2}:\d{2}$', clean_name):
+                                return clean_name
                     except: continue
                 return None
             except:
