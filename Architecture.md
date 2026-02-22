@@ -110,6 +110,8 @@ sequenceDiagram
 
 ### 4.1 Common Breakpoints
 - **DOM Selector Changes**: WhatsApp frequently updates CSS classes. Check `div[data-id]` (messages) and `div[data-tab='3']` (search box) first.
+- **JID Guard**: The bridge implements a security layer that prevents mapping group JIDs to phone number identities, protecting against session cross-talk.
+- **Robust Matching**: Uses normalization to handle discrepancies between UI titles (e.g., "Du") and registered identities.
 - **Rate Limiting**: The orchestrator enforces a 2-second per-chat cooldown and a global cooldown to avoid spam detection.
 - **Quota Management**: If a "quota exhausted" error is detected from Gemini, the orchestrator automatically enters a 5-minute back-off mode across all chats.
 
